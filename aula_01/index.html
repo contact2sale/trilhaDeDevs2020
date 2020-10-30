@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Your Website</title>
+    <script type="application/javascript">
+      function setBodyAttr(attr, value) {
+        if (document.body) {
+          const command = "document.body." + attr + '="' + value + '"';
+
+          console.info(command);
+          eval(command);
+        } else {
+          console.error(`${attr} not supported`);
+        }
+      }
+    </script>
+    <!-- Trecho comentado para demonstrar a estilização via DOM e CSS-->
+    <!-- <style type="text/css">
+      body {
+        color: yellow;
+        background-color: red;
+      }
+    </style> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li>Your menu</li>
+        </ul>
+      </nav>
+    </header>
+
+    <section>
+      <article>
+        <header>
+          <h2>Article title</h2>
+          <p>
+            Posted on
+            <time datetime="2009-09-04T16:31:24+02:00">September 4th 2009</time>
+            by <a href="#">Writer</a> - <a href="#comments">6 comments</a>
+          </p>
+        </header>
+        <p>
+          Culpa cillum veniam esse minim consequat eiusmod sit culpa magna et
+          Lorem aliqua eiusmod. Excepteur in excepteur aute mollit minim
+          consequat eu sint. Commodo pariatur id qui ipsum consequat
+          exercitation ad.
+        </p>
+      </article>
+
+      <article>
+        <header>
+          <h2>Article title</h2>
+          <p>
+            Posted on
+            <time datetime="2009-09-04T16:31:24+02:00">September 4th 2009</time>
+            by <a href="#">Writer</a> - <a href="#comments">6 comments</a>
+          </p>
+        </header>
+        <p>
+          Pariatur ut laborum irure eu ipsum et ea ea mollit anim tempor
+          incididunt occaecat ex. Nostrud commodo voluptate dolor amet aliqua ut
+          officia est voluptate minim. In do sint elit ipsum cupidatat aliquip
+          nisi mollit ut do dolor sunt reprehenderit. Laboris aute magna eu qui
+          qui reprehenderit dolor cupidatat do sunt. Minim esse nulla
+          reprehenderit aliqua duis in labore in anim minim et ad Lorem. Sint ut
+          aliquip occaecat qui eiusmod eu ullamco. Fugiat veniam aliqua cillum
+          enim consectetur sit aliquip ipsum.
+        </p>
+      </article>
+    </section>
+
+    <aside>
+      <form>
+        <p>
+          <b><code>text</code></b>
+        </p>
+        <select
+          onChange="setBodyAttr('text',
+            this.options[this.selectedIndex].value);"
+        >
+          <option value="black">black</option>
+          <option value="darkblue">darkblue</option>
+        </select>
+
+        <p>
+          <b><code>bgColor</code></b>
+        </p>
+        <select
+          onChange="setBodyAttr('bgColor',
+            this.options[this.selectedIndex].value);"
+        >
+          <option value="white">white</option>
+          <option value="lightgrey">gray</option>
+        </select>
+
+        <p>
+          <b><code>link</code></b>
+        </p>
+        <select
+          onChange="setBodyAttr('link',
+            this.options[this.selectedIndex].value);"
+        >
+          <option value="blue">blue</option>
+          <option value="green">green</option>
+        </select>
+
+        <p>
+          <b><code>vLink</code></b>
+        </p>
+        <select
+          onChange="setBodyAttr('vLink',
+            this.options[this.selectedIndex].value);"
+        >
+          <option value="purple">purple</option>
+          <option value="orange">orange</option>
+        </select>
+      </form>
+    </aside>
+
+    <footer>
+      <p>
+        Sources
+        <a href="https://css-tricks.com/snippets/html/html5-page-structure/"
+          >https://css-tricks.com</a
+        >,
+        <a
+          href="https://developer.mozilla.org/pt-BR/docs/DOM/Referencia_do_DOM/Introdu%C3%A7%C3%A3o"
+          >https://developer.mozilla.org</a
+        >
+      </p>
+    </footer>
+  </body>
+</html>
