@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Your Website</title>
+
+    <style type="text/css">
+      .item {
+        width: 10cm;
+        height: 6cm;
+        border: 1px solid #000;
+        margin: 20px auto;
+        border-spacing: 5px;
+        border-collapse: separate;
+        font-family: Arial, Helvetica, sans-serif;
+        page-break-after: always;
+        table-layout: fixed;
+      }
+      .item table {
+        width: 100%;
+        height: 100%;
+        border-spacing: 0;
+        border-collapse: separate;
+      }
+      .item img {
+        height: 70px;
+      }
+      .item td {
+        vertical-align: middle;
+      }
+      .item td.header {
+        color: #000;
+        background: #fff;
+      }
+      .item td td {
+        vertical-align: middle;
+        border: 1px solid #000;
+        padding: 5px 10px;
+      }
+      .item span {
+        font-size: 45px;
+        font-weight: bold;
+      }
+      .item span.medium {
+        font-size: 28px;
+        font-weight: bold;
+      }
+      .item span.small {
+        font-size: 16px;
+        font-weight: bold;
+      }
+      .item input {
+        font-size: 33px;
+        font-weight: bold;
+        border: none;
+        background: none;
+        width: 100%;
+        border-bottom: 1px solid #000;
+      }
+      .item input.medium {
+        font-size: 33px;
+        font-weight: bold;
+      }
+      .item input.small {
+        font-size: 16px;
+        font-weight: bold;
+      }
+      .item input.black {
+        color: #fff;
+        background: #000;
+        margin: -5px 0 0 -10px;
+        padding: 5px 10px;
+      }
+      .item .values {
+        color: #fff;
+        background: #000;
+      }
+      .item .values input {
+        color: #fff;
+        background: #000;
+      }
+      .item_02 td td,
+      .item_03 td td,
+      .item_04 td td,
+      .item_05 td td {
+        border: none;
+      }
+      .text-right {
+        text-align: right;
+      }
+      .text-center {
+        text-align: center;
+      }
+
+      .tools {
+        margin: -15px auto 0;
+        text-align: center;
+      }
+      .tools li {
+        display: inline;
+        padding: 5px 10px;
+        border: 1px solid #000;
+        border-top: 1px solid #fff;
+      }
+
+      @page {
+        size: 15.9cm 8.5cm;
+        margin: 0;
+      }
+      @media print {
+        body {
+          margin: 0;
+        }
+        .item {
+          border: 1px solid #fff;
+          margin: 0;
+        }
+        .item input {
+          border-bottom: none;
+        }
+        .tools {
+          display: none !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <section>
+      <table class="item item_01">
+        <tr>
+          <td>
+            <table>
+              <tr>
+                <td width="80" class="volumes">
+                  Volume(s): <input type="text" class="text-center" value="1" />
+                </td>
+                <td align="center" class="values">
+                  <input
+                    type="text"
+                    class="text-center"
+                    value="N/F: 100004191"
+                  />
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table>
+              <tr>
+                <td width="80" class="volumes">
+                  Volume(s): <input type="text" class="text-center" value="1" />
+                </td>
+                <td align="center" class="values">
+                  <input
+                    type="text"
+                    class="text-center"
+                    value="N/F: 100004191"
+                  />
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <table class="item item_02">
+        <tr>
+          <td align="center"><span class="medium">COMPANY S/A</span></td>
+        </tr>
+        <tr>
+          <td>
+            <table>
+              <tr>
+                <td width="60">CLIENTE:</td>
+                <td>
+                  <input
+                    type="text"
+                    class="small black"
+                    value="J. N.  POUSADA LTDA"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>CIDADE:</td>
+                <td>
+                  <input
+                    type="text"
+                    class="small black"
+                    value="IPATINGA / MG"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" style="padding: 0">
+                  <table>
+                    <tr>
+                      <td>N/F:</td>
+                      <td>
+                        <input
+                          type="text"
+                          class="black text-center"
+                          value="100004191"
+                        />
+                      </td>
+                      <td align="right">VOL:</td>
+                      <td width="40">
+                        <input
+                          type="text"
+                          class="black text-center"
+                          value="1"
+                        />
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <table class="item item_04">
+        <tr>
+          <td height="40">
+            <table>
+              <tr>
+                <td class="header" align="center">
+                  <span class="medium">DESTINATÁRIO</span>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table>
+              <tr>
+                <td colspan="2">
+                  <input
+                    type="text"
+                    class="small black"
+                    value="J. N.  POUSADA LTDA"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <input
+                    type="text"
+                    class="small black"
+                    value="RUA SERRA GERAL, 535"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <input
+                    type="text"
+                    class="small black"
+                    value="BAIRRO: JARDIM PANORAMA"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td width="60" align="right">CIDADE:</td>
+                <td>
+                  <input
+                    type="text"
+                    class="small black"
+                    value="IPATINGA / MG"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td width="60" align="right">CEP:</td>
+                <td>
+                  <input type="text" class="small black" value="35164236" />
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <table class="item item_05">
+        <tr>
+          <td height="40">
+            <table>
+              <tr>
+                <td class="header" align="center">
+                  <span class="medium">REMETENTE</span>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table>
+              <tr>
+                <td colspan="2">
+                  <input
+                    type="text"
+                    class="small black"
+                    value="SANTOS ARAUJO IND COME E REPRESENTACOES LTDA"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <input
+                    type="text"
+                    class="small black"
+                    value="RUA CARLOS TEXEIRA BARRETO, 241"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <input
+                    type="text"
+                    class="small black"
+                    value="BAIRRO: SAO CAETANO"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td width="60" align="right">CIDADE:</td>
+                <td>
+                  <input type="text" class="small black" value="ITABUNA / BA" />
+                </td>
+              </tr>
+              <tr>
+                <td width="60" align="right">CEP:</td>
+                <td>
+                  <input type="text" class="small black" value="45607095" />
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <ul class="tools" style="display: none">
+        <li><a href="#" class="add">+ Duplicar</a></li>
+        <li><a href="#" class="del">- Remover</a></li>
+      </ul>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+      $(function () {
+        $(".tools a.add").click(function (e) {
+          e.preventDefault();
+
+          var $tools = $(this).closest("ul");
+          var $element = $tools.prev();
+          var $new = $element.clone();
+
+          $tools.after($new);
+
+          $new.after($(".tools:last").clone(true, true).show());
+        });
+
+        $(".tools a.del").click(function (e) {
+          e.preventDefault();
+
+          var accept = confirm(
+            "Está certo disso? Você terá que atualizar a página para restaurar as etiquetas padrões."
+          );
+
+          if (!accept) return false;
+
+          var $tools = $(this).closest("ul");
+          var $element = $tools.prev();
+
+          $tools.remove();
+          $element.remove();
+        });
+
+        $(".item").after($(".tools:last").clone(true, true).show());
+      });
+    </script>
+  </body>
+</html>

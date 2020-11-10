@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Title of document</title>
+    <style type="text/css">
+      .eol {
+        color: red;
+        text-decoration: underline;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Não diferencia maiúsculo de minúsculo -->
+    <h1>h1</h1>
+    <H1>H1</H1>
+
+    <!-- Quebras de linhas visualmente são convertidas em espaço apenas -->
+    <p>
+      (p) Non tempor do sit ullamco aliquip deserunt do enim pariatur excepteur.<span class="eol">eol</span>
+    </p>
+    <P>
+      (P) Dolor magna et pariatur mollit elit voluptate quis quis tempor laboris<span class="eol">eol</span>
+      voluptate dolor. Ut velit nostrud deserunt consequat eiusmod voluptate<span class="eol">eol</span>
+      laboris. Occaecat esse est nulla deserunt aute dolor dolor commodo nulla dolor<span class="eol">eol</span>
+      proident consectetur qui reprehenderit. Aute adipisicing elit consequat do<span class="eol">eol</span>
+      aute incididunt sint irure excepteur proident.<span class="eol">eol</span>
+    </P>
+
+    <!-- O browser se encarrega de fechar as tags e os elementos -->
+    <p>
+        Minim cupidatat cupidatat consectetur excepteur mollit occaecat est eu.<span class="eol">eol</span>
+    <p>
+      Ullamco eu eiusmod labore cupidatat. Id excepteur non deserunt adipisicing<span class="eol">eol</span>
+      ipsum commodo quis pariatur eu dolore in sit ad magna. Duis ex ullamco<span class="eol">eol</span>
+      voluptate sint proident. Sint amet nulla enim nisi elit.<span class="eol">eol</span>
+    </p>
+
+    <!-- O H2 envolve o P, mas não envolve o H3  -->
+    <h2>
+        h2
+        <p>
+            (p) Non tempor do sit ullamco aliquip deserunt do enim pariatur excepteur.<span class="eol">eol</span>
+        </p>
+
+    <h3>h3</h3>
+
+    <!-- O texto também é um nó -->
+    <p id="paragraph">Hello <strong>World</strong>!!!</p>
+  </body>
+</html>
