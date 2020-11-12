@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>To-Do List</title>
+
+    <style type="text/css">
+      html,
+      body {
+        height: 100%;
+      }
+      .strike {
+        text-decoration: line-through;
+      }
+      footer {
+        position: fixed;
+        bottom: 0;
+      }
+    </style>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <h1>To-Do List</h1>
+
+    <form id="form-add-todo" class="form-add-todo">
+      <label for="todo">To do:</label>
+      <input type="text" id="new-todo-item" class="new-todo-item" name="todo" />
+      <input
+        type="submit"
+        id="add-todo-item"
+        class="add-todo-item"
+        value="add the todo"
+      />
+    </form>
+
+    <form id="form-todo-list">
+      <ul id="todo-list" class="todo-list"></ul>
+    </form>
+
+    <footer>
+      <p>
+        Sources
+        <a href="https://jquery.com/">https://jquery.com/</a>,
+        <a href="https://codepen.io/enriquegonzalez/pen/cAimw"
+          >https://codepen.io/enriquegonzalez/pen/cAimw</a
+        >
+      </p>
+    </footer>
+
+    <script type="application/javascript">
+      function addTodoItem() {
+        var todoItem = $("#new-todo-item").val();
+        var newLi = $("<li />").text(todoItem);
+
+        var newCheckbox = $("<input />").attr({
+          type: "checkbox",
+          name: "todo-item-done",
+          class: "todo-item-done",
+          value: todoItem,
+        });
+
+        var newButton = $("<button />")
+          .attr({
+            class: "todo-item-delete",
+          })
+          .text("Delete");
+
+        var newRow = newLi.prepend(newCheckbox).append(newButton);
+
+        $("#todo-list").append(newRow);
+
+        $("#new-todo-item").val("");
+      }
+
+      function deleteTodoItem(e, item) {
+        e.preventDefault();
+
+        $(item).parent().remove();
+      }
+
+      function completeTodoItem() {
+        $(this).parent().toggleClass("strike");
+      }
+
+      $(function () {
+        $("#add-todo-item").on("click", function (e) {
+          e.preventDefault();
+
+          addTodoItem();
+        });
+
+        $("#todo-list").on("click", ".todo-item-delete", function (e) {
+          var item = this;
+
+          deleteTodoItem(e, item);
+        });
+
+        $(document).on("click", ".todo-item-done", completeTodoItem);
+      });
+    </script>
+  </body>
+</html>
