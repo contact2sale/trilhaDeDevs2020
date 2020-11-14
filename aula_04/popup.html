@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>Parent</title>
+  </head>
+  <body>
+    <script>
+      var oldX = window.screenX,
+        oldY = window.screenY;
+
+      window.opener.setChildPosition(oldX);
+
+      var interval = setInterval(function () {
+        if (oldX != window.screenX || oldY != window.screenY) {
+          window.opener.setChildPosition(oldX);
+        } else {
+          console.log("not moved!");
+        }
+
+        oldX = window.screenX;
+        oldY = window.screenY;
+      }, 100);
+    </script>
+  </body>
+</html>

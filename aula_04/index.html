@@ -1,0 +1,131 @@
+<html>
+  <head>
+    <title>Parent</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+      crossorigin="anonymous"
+    />
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.14.2/matter.min.js"
+      integrity="sha512-pi0tSRZdlNRZeANPwdAIHRAYg6gZZV6QlAiyHXn5TYqLzBKE9jlttO/QgYLMhISD6oNv2kPsVelx+n5nw0FqKA=="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <script>
+      var popupBarX = 0;
+      var popup = window.open("popup.html", "popup", "width=200, height=50");
+
+      window.setChildPosition = function (value) {
+        popupBarX = value - window.screenX + 100;
+
+        setPopupBar();
+      };
+
+      var canvas = document.getElementById("canvas");
+
+      var Engine = Matter.Engine,
+        Render = Matter.Render,
+        World = Matter.World,
+        Body = Matter.Body,
+        Bodies = Matter.Bodies,
+        Infinity = Matter.Infinity,
+        Common = Matter.Common,
+        Events = Matter.Events;
+
+      // create an engine
+      var engine = Engine.create();
+
+      // create a renderer
+      var render = Render.create({
+        element: document.body,
+        canvas: canvas,
+        engine: engine,
+        options: {
+          background: "transparent",
+          wireframes: false,
+        },
+      });
+
+      // create two boxes and a ground
+      var ball = Bodies.circle(20, 0, 20, {
+        frictionAir: 0,
+        friction: 0,
+        frictionStatic: 0,
+        inertia: Infinity,
+        restitution: 1,
+        render: {
+          fillStyle: "#FF2C55",
+        },
+      });
+
+      var ground = Bodies.rectangle(popupBarX, canvas.height - 10, 200, 20, {
+        isStatic: true,
+        render: {
+          fillStyle: "#24D6FF",
+        },
+      });
+
+      Matter.Events.on(engine, "collisionEnd", ({ pairs }) => {
+        pairs.forEach(({ bodyA, bodyB }) => {
+          setTimeout(function () {
+            var side = bodyA.velocity.x > 0 ? -1 : 1;
+            var forceMagnitude = (bodyA.velocity.x / 100) * bodyA.mass || 0.005;
+
+            forceMagnitude =
+              forceMagnitude > 0.005 || forceMagnitude < -0.005
+                ? 0.005
+                : forceMagnitude;
+
+            Body.applyForce(bodyA, bodyA.position, {
+              x: (forceMagnitude + Common.random() * forceMagnitude) * side,
+              y: 0,
+            });
+          }, 10);
+        });
+      });
+
+      // add all of the bodies to the world
+      World.add(engine.world, [ball, ground]);
+
+      // run the engine
+      Engine.run(engine);
+
+      // run the renderer
+      Render.run(render);
+
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      function setPopupBar() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        Matter.World.remove(engine.world, ground);
+
+        ground = Bodies.rectangle(popupBarX, canvas.height - 10, 200, 20, {
+          isStatic: true,
+          render: {
+            fillStyle: "#24D6FF",
+          },
+        });
+
+        // add all of the bodies to the world
+        World.add(engine.world, ground);
+      }
+
+      window.addEventListener("resize", setPopupBar);
+    </script>
+  </body>
+</html>
