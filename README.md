@@ -18,7 +18,7 @@ Repositório para compartilhar os fontes das aulas sobre Javascript do evento Ti
 
 1. [Aula 01 - DOM](./aula_01/)
 2. [Aula 02 - DOM](./aula_02/)
-3. [Aula 03 - BOM](./aula_03/)
+3. [Aula 03 - ~~BOM~~DOM](./aula_03/)
 4. [Aula 04 - BOM](./aula_04/)
 5. [Aula 05 - AJAX](./aula_05/)
 6. [Aula 06 - AJAX](./aula_06/)
