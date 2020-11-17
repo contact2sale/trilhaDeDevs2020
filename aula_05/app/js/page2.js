@@ -9,15 +9,15 @@ function getUsers() {
   });
 }
 
-function renderUsers(data) {
-  data.reverse().forEach(function(item){
+function renderUsers(response) {
+  response.reverse().forEach(function(item){
     $("table tbody").append(`
         <tr>
         <th scope="row">${item.id}</th>
         <td>${item.name}</td>
         <td>${item.jobTitle}</td>
         <td>${item.email}</td>
-        <td><img src="${item.avatar}"/></td>
+        <td><img src="${item.avatar}"></td>
       </tr>
     `);
   })
